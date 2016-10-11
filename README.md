@@ -18,6 +18,7 @@ Don't forget to switch to a compiler **>= 4.03.0**.
 opam switch 4.03.0
 ```
 
+If you want to install the latest released version:
 ```
 opam install cordova-plugin-fcm
 ```
