@@ -23,7 +23,7 @@ If you want to install the latest released version:
 opam install cordova-plugin-fcm
 ```
 
-You can use opam by pinning the repository with
+For the dev version, you can use OPAM by pinning the repository with
 ```Shell
 opam pin add cordova-plugin-fcm https://github.com/dannywillems/ocaml-cordova-plugin-fcm.git
 ```
