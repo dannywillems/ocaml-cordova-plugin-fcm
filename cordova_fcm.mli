@@ -7,7 +7,7 @@ module Data :
     type t = Ojs.t
 
     val was_tapped : t -> bool
-    [@@js.call]
+    [@@js.get]
 
     [@@@js.stop]
     val get : t -> string -> Ojs.t
