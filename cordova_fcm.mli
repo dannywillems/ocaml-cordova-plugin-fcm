@@ -51,6 +51,9 @@ module Data :
 
     (** [get_int64 data key] returns the value of [data.key] as an int64 type *)
     val get_int64           : t -> string -> int64
+
+    (** [get_float data key] returns the value of [data.key] as a float type *)
+    val get_float           : t -> string -> float
     [@@@js.start]
 
     [@@@js.implem
@@ -63,6 +66,8 @@ module Data :
       let get_bool data key   = Ojs.bool_of_js (get data key)
 
       let get_int64 data key  = Int64.of_string (get_string data key)
+
+      let get_float data key  = Ojs.float_of_js (get data key)
     ]
   end
 
