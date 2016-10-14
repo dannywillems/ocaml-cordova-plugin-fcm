@@ -1,7 +1,46 @@
+(* ocaml-cordova-plugin-fcm
+
+ * https://github.com/dannywillems/ocaml-cordova-plugin-fcm
+ *
+ * Copyright (C) Danny Willems
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, with linking exception;
+ * either version 2.1 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ *)
+
+(** Binding to cordova-plugin-fcm using gen_js_api which allows you to use
+    Firebase Cloud Messaging in OCaml to receive push notifications on Android
+    and iOS.
+ *)
+
+(** The three following types are defined to have clearer functions signatures.
+    They are not abstract because it is not necessary.
+ *)
+
+(** Types representing a FCM token *)
 type token = string
+
+(** Types representing a topic in FCM *)
 type topic = string
+
+(** Types representing an error returned by FCM *)
 type error = string
 
+(** The following module defines a type {!Data.t} which contains information
+    about the notification (which is a JavaScript object). To access to
+    properties of a value of type {!Data.t}, get functions are implemented.
+ *)
 module Data :
   sig
     (** The type representing the data object received with each notification *)
@@ -15,20 +54,20 @@ module Data :
     [@@js.get]
 
     (** The ID of the application. For FCM, it's the project number.
-        NOTE: A value is set only if the application was in background.
+        {b NOTE: A value is set only if the application was in background. }
      *)
     val from                : t -> string option
     [@@js.get]
 
     (** Seems to be always the application ID.
-        NOTE: A value is set only if the application was in background.
+        {b NOTE: A value is set only if the application was in background. }
      *)
     val collapse_key        : t -> string option
     [@@js.get "collapse_key"]
 
     (** The topic message ID when GCM has successfully received the request and
         will attempt to deliver to all subscribed devices.
-        NOTE: A value is set only if the application was in background.
+        {b NOTE: A value is set only if the application was in background. }
      *)
     val google_message_id   : t -> string option
     [@@js.get "google.message_id"]
