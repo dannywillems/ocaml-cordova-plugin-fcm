@@ -40,5 +40,16 @@ cordova plugin add cordova-plugin-fcm
 
 ## How to use?
 
-See the official documentation
-[cordova-plugin-fcm](https://github.com/fechanique/cordova-plugin-fcm)
+See the `doc` directory. The documentation is generated thanks to `ocamldoc`
+with the command
+```Shell
+make doc-html
+```
+which is
+```
+mkdir -p doc
+ocamlfind ocamldoc -html -package gen_js_api -d doc cordova_push.mli
+```
+
+You have also the plugin documentation and source code
+[here](https://github.com/fechanique/cordova-plugin-fcm)

@@ -2,7 +2,9 @@ include Makefile.conf
 
 ################################################################################
 CC				= ocamlc
+OCAMLDOC		= ocamldoc
 PACKAGES		= -package gen_js_api
+DOC_OUTPUT_DIR	= doc
 
 ML_FILE			= $(patsubst %.mli, %.ml, $(MLI_FILE))
 CMI_FILE		= $(patsubst %.mli, %.cmi, $(MLI_FILE))
@@ -23,8 +25,15 @@ install: build
 remove:
 	ocamlfind remove $(LIB_NAME)
 
+doc-html:
+	mkdir -p $(DOC_OUTPUT_DIR)
+	ocamlfind $(OCAMLDOC) -html $(PACKAGES) -d $(DOC_OUTPUT_DIR) $(MLI_FILE)
+
 clean:
 	$(RM) $(CMI_FILE) $(CMO_FILE) $(ML_FILE) $(CMA_FILE)
+
+clean-doc:
+	$(RM) -r $(DOC_OUTPUT_DIR)
 
 re: clean all
 ################################################################################

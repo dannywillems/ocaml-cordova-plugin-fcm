@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="Cordova_fcm.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Cordova_fcm" rel="Chapter" href="Cordova_fcm.html"><title>Cordova_fcm.Data</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="Cordova_fcm.html" title="Cordova_fcm">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Cordova_fcm.Data.html">Cordova_fcm.Data</a></h1>
+
+<pre><span class="keyword">module</span> Data: <code class="code">sig</code> <a href="Cordova_fcm.Data.html">..</a> <code class="code">end</code></pre><div class="info module top">
+The following module defines a type <a href="Cordova_fcm.Data.html#TYPEt"><code class="code">Cordova_fcm.Data.t</code></a> which contains information
+    about the notification (which is a JavaScript object). To access to
+    properties of a value of type <a href="Cordova_fcm.Data.html#TYPEt"><code class="code">Cordova_fcm.Data.t</code></a>, get functions are implemented.<br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type">Ojs.t</code> </pre>
+<div class="info ">
+The type representing the data object received with each notification<br>
+</div>
+
+
+<pre><span id="VALwas_tapped"><span class="keyword">val</span> was_tapped</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
+<code class="code">was_tapped data</code> returns <code class="code">true</code> if the application was in background
+        and the user taps the notification. If the application was in
+        foreground, the value is <code class="code">false</code>.<br>
+</div>
+
+<pre><span id="VALfrom"><span class="keyword">val</span> from</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string option</code></pre><div class="info ">
+The ID of the application. For FCM, it's the project number.
+        <b>NOTE: A value is set only if the application was in background. </b><br>
+</div>
+
+<pre><span id="VALcollapse_key"><span class="keyword">val</span> collapse_key</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string option</code></pre><div class="info ">
+Seems to be always the application ID.
+        <b>NOTE: A value is set only if the application was in background. </b><br>
+</div>
+
+<pre><span id="VALgoogle_message_id"><span class="keyword">val</span> google_message_id</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string option</code></pre><div class="info ">
+The topic message ID when GCM has successfully received the request and
+        will attempt to deliver to all subscribed devices.
+        <b>NOTE: A value is set only if the application was in background. </b><br>
+</div>
+
+<pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> Ojs.t</code></pre><div class="info ">
+<code class="code">get data key</code> returns the value of <code class="code">data.key</code> as an <code class="code">Ojs.t</code> type<br>
+</div>
+
+<pre><span id="VALget_string"><span class="keyword">val</span> get_string</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> string</code></pre><div class="info ">
+<code class="code">get_string data key</code> returns the value of <code class="code">data.key</code> as a string<br>
+</div>
+
+<pre><span id="VALget_int"><span class="keyword">val</span> get_int</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> int</code></pre><div class="info ">
+<code class="code">get_int data key</code> returns the value of <code class="code">data.key</code> as an integer<br>
+</div>
+
+<pre><span id="VALget_bool"><span class="keyword">val</span> get_bool</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> bool</code></pre><div class="info ">
+<code class="code">get_bool data key</code> returns the value of <code class="code">data.key</code> as a boolean<br>
+</div>
+
+<pre><span id="VALget_int64"><span class="keyword">val</span> get_int64</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> int64</code></pre><div class="info ">
+<code class="code">get_int64 data key</code> returns the value of <code class="code">data.key</code> as an int64 type<br>
+</div>
+
+<pre><span id="VALget_float"><span class="keyword">val</span> get_float</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> float</code></pre><div class="info ">
+<code class="code">get_float data key</code> returns the value of <code class="code">data.key</code> as a float type<br>
+</div>
+</body></html>

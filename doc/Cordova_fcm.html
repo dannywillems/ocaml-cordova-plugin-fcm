@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Cordova_fcm" rel="Chapter" href="Cordova_fcm.html"><title>Cordova_fcm</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Cordova_fcm.html">Cordova_fcm</a></h1>
+
+<pre><span class="keyword">module</span> Cordova_fcm: <code class="code">sig</code> <a href="Cordova_fcm.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Binding to cordova-plugin-fcm using gen_js_api which allows you to use
+    Firebase Cloud Messaging in OCaml to receive push notifications on Android
+    and iOS.<br>
+</div>
+<hr width="100%">
+<br>
+The three following types are defined to have clearer functions signatures.
+    They are not abstract because it is not necessary.<br>
+
+<pre><span id="TYPEtoken"><span class="keyword">type</span> <code class="type"></code>token</span> = <code class="type">string</code> </pre>
+<div class="info ">
+Types representing a FCM token<br>
+</div>
+
+
+<pre><span id="TYPEtopic"><span class="keyword">type</span> <code class="type"></code>topic</span> = <code class="type">string</code> </pre>
+<div class="info ">
+Types representing a topic in FCM<br>
+</div>
+
+
+<pre><span id="TYPEerror"><span class="keyword">type</span> <code class="type"></code>error</span> = <code class="type">string</code> </pre>
+<div class="info ">
+Types representing an error returned by FCM<br>
+</div>
+
+
+<pre><span class="keyword">module</span> <a href="Cordova_fcm.Data.html">Data</a>: <code class="code">sig</code> <a href="Cordova_fcm.Data.html">..</a> <code class="code">end</code></pre><div class="info">
+The following module defines a type <a href="Cordova_fcm.Data.html#TYPEt"><code class="code">Cordova_fcm.Data.t</code></a> which contains information
+    about the notification (which is a JavaScript object).
+</div>
+
+<pre><span id="VALget_token"><span class="keyword">val</span> get_token</span> : <code class="type">(<a href="Cordova_fcm.html#TYPEtoken">token</a> -> unit) -> (<a href="Cordova_fcm.html#TYPEerror">error</a> -> unit) -> unit</code></pre><div class="info ">
+<code class="code">get_token success_callback error_callback</code> gets a token from FCM.
+    If success, the callback <code class="code">success_callback</code> is called and the token is given
+    in the first parameter.
+    If an error occured, the callback <code class="code">error_callback</code> is called and the
+    error description is given as a string in the first parameter.<br>
+</div>
+
+<pre><span id="VALsubscribe_to_topic"><span class="keyword">val</span> subscribe_to_topic</span> : <code class="type"><a href="Cordova_fcm.html#TYPEtopic">topic</a> -> (string -> unit) -> (<a href="Cordova_fcm.html#TYPEerror">error</a> -> unit) -> unit</code></pre><div class="info ">
+<code class="code">subscribe_to_topic topic success_callback error_callback</code> subscribes to the
+    topic <code class="code">topic</code>.
+    If success, the callback <code class="code">success_callback</code> is called and a message is given
+    in the first parameter.
+    If an error occured, the callback <code class="code">error_callback</code> is called and the
+    error description is given as a string in the first parameter.<br>
+</div>
+
+<pre><span id="VALunsubscribe_from_topic"><span class="keyword">val</span> unsubscribe_from_topic</span> : <code class="type"><a href="Cordova_fcm.html#TYPEtopic">topic</a> -> (string -> unit) -> (<a href="Cordova_fcm.html#TYPEerror">error</a> -> unit) -> unit</code></pre><div class="info ">
+<code class="code">unsubscribe_to_topic topic success_callback error_callback</code> unsubscribes to
+    the topic <code class="code">topic</code>.
+    If success, the callback <code class="code">success_callback</code> is called and a message is given
+    in the first parameter.
+    If an error occured, the callback <code class="code">error_callback</code> is called and the
+    error description is given as a string in the first parameter.<br>
+</div>
+
+<pre><span id="VALon_notification"><span class="keyword">val</span> on_notification</span> : <code class="type">(<a href="Cordova_fcm.Data.html#TYPEt">Data.t</a> -> unit) -><br>       (string -> unit) -> (<a href="Cordova_fcm.html#TYPEerror">error</a> -> unit) -> unit</code></pre><div class="info ">
+<code class="code">on_notification callback_on_notification success_registering
+    error_registering</code> registers the callback <code class="code">callback_on_notification</code> which
+    will be executed when the device will receive a notification. A <code class="code">Data.t</code>
+    value is given in first parameter which contains keys sent by FCM. You can
+    get any key values by using the appropriate <code class="code">Data.get</code> functions. Wrappers
+    for built-in OCaml types like get_string, get_bool, get_int, get_int64 are
+    defined to avoid using a cast function.
+<p>
+
+    <code class="code">success_registered</code> will be executed if the onNotification callback is
+    successfully registered.
+    <code class="code">error_registered</code> will be executed if the onNotification callback failed to
+    register.<br>
+</div>
+</body></html>
