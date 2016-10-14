@@ -18,11 +18,6 @@ Don't forget to switch to a compiler **>= 4.03.0**.
 opam switch 4.03.0
 ```
 
-If you want to install the latest released version:
-```
-opam install cordova-plugin-fcm
-```
-
 For the dev version, you can use OPAM by pinning the repository with
 ```Shell
 opam pin add cordova-plugin-fcm https://github.com/dannywillems/ocaml-cordova-plugin-fcm.git
