@@ -40,8 +40,10 @@ cordova plugin add cordova-plugin-fcm
 
 ## How to use?
 
-See the `doc` directory. The documentation is generated thanks to `ocamldoc`
-with the command
+You can find the documentation
+[here](http://htmlpreview.github.io/?https://github.com/dannywillems/ocaml-cordova-plugin-fcm/blob/master/doc/index.html)
+which is the GitHub HTML preview of the `doc` directory. The documentation is
+generated thanks to `ocamldoc` with the command
 ```Shell
 make doc-html
 ```
