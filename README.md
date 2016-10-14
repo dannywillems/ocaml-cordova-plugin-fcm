@@ -53,3 +53,12 @@ ocamlfind ocamldoc -html -package gen_js_api -d doc cordova_push.mli
 
 You have also the plugin documentation and source code
 [here](https://github.com/fechanique/cordova-plugin-fcm)
+
+## About certificates.
+
+Firebase allows you to send push notifications to Android and iOS devices at the
+same time, with the same interface. For that, you need to configure Firebase.
+All instructions are available on the [Firebase
+documentation](https://firebase.google.com/docs/cloud-messaging/) and in the
+[Cordova plugin
+documentation](https://github.com/fechanique/cordova-plugin-fcm).
