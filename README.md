@@ -1,5 +1,8 @@
 # ocaml-cordova-plugin-fcm
 
+[![LGPL-v3 licensed](https://img.shields.io/badge/license-LGPLv3-blue.svg)](https://raw.githubusercontent.com/dannywillems/ocaml-cordova-plugin-battery-status/master/LICENSE)
+[![Build Status](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-fcm.svg?branch=master)](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-fcm)
+
 Binding to
 [cordova-plugin-fcm](https://github.com/fechanique/cordova-plugin-fcm)
 
