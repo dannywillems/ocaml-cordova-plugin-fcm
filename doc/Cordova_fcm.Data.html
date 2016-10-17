@@ -51,26 +51,56 @@ The topic message ID when GCM has successfully received the request and
 </div>
 
 <pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> Ojs.t</code></pre><div class="info ">
-<code class="code">get data key</code> returns the value of <code class="code">data.key</code> as an <code class="code">Ojs.t</code> type<br>
+<code class="code">get data key</code> returns the value of <code class="code">data.key</code> as an <code class="code">Ojs.t</code> type.<br>
+</div>
+
+<pre><span id="VALget_opt"><span class="keyword">val</span> get_opt</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> Ojs.t option</code></pre><div class="info ">
+<code class="code">get_opt data key</code> returns the value of <code class="code">data.key</code> as an <code class="code">Ojs.t</code> option.
+        If <code class="code">key</code> is not an attribute of <code class="code">data</code>, it returns <code class="code">None</code>.<br>
 </div>
 
 <pre><span id="VALget_string"><span class="keyword">val</span> get_string</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> string</code></pre><div class="info ">
 <code class="code">get_string data key</code> returns the value of <code class="code">data.key</code> as a string<br>
 </div>
 
+<pre><span id="VALget_string_opt"><span class="keyword">val</span> get_string_opt</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> string option</code></pre><div class="info ">
+<code class="code">get_string_opt data key</code> returns the value of <code class="code">data.key</code> as a string
+        option. If <code class="code">key</code> is not an attribute of <code class="code">data</code>, it returns <code class="code">None</code>.<br>
+</div>
+
 <pre><span id="VALget_int"><span class="keyword">val</span> get_int</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> int</code></pre><div class="info ">
 <code class="code">get_int data key</code> returns the value of <code class="code">data.key</code> as an integer<br>
+</div>
+
+<pre><span id="VALget_int_opt"><span class="keyword">val</span> get_int_opt</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> int option</code></pre><div class="info ">
+<code class="code">get_int_opt data key</code> returns the value of <code class="code">data.key</code> as an int option.
+        If <code class="code">key</code> is not an attribute of <code class="code">data</code>, it returns <code class="code">None</code>.<br>
 </div>
 
 <pre><span id="VALget_bool"><span class="keyword">val</span> get_bool</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> bool</code></pre><div class="info ">
 <code class="code">get_bool data key</code> returns the value of <code class="code">data.key</code> as a boolean<br>
 </div>
 
+<pre><span id="VALget_bool_opt"><span class="keyword">val</span> get_bool_opt</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> bool option</code></pre><div class="info ">
+<code class="code">get_bool_opt data key</code> returns the value of <code class="code">data.key</code> as a bool
+        option. If <code class="code">key</code> is not an attribute of <code class="code">data</code>, it returns <code class="code">None</code>.<br>
+</div>
+
 <pre><span id="VALget_int64"><span class="keyword">val</span> get_int64</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> int64</code></pre><div class="info ">
 <code class="code">get_int64 data key</code> returns the value of <code class="code">data.key</code> as an int64 type<br>
 </div>
 
+<pre><span id="VALget_int64_opt"><span class="keyword">val</span> get_int64_opt</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> int64 option</code></pre><div class="info ">
+<code class="code">get_int64_opt data key</code> returns the value of <code class="code">data.key</code> as an int64
+        option. If <code class="code">key</code> is not an attribute of <code class="code">data</code>, it returns <code class="code">None</code>.<br>
+</div>
+
 <pre><span id="VALget_float"><span class="keyword">val</span> get_float</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> float</code></pre><div class="info ">
 <code class="code">get_float data key</code> returns the value of <code class="code">data.key</code> as a float type<br>
+</div>
+
+<pre><span id="VALget_float_opt"><span class="keyword">val</span> get_float_opt</span> : <code class="type"><a href="Cordova_fcm.Data.html#TYPEt">t</a> -> string -> float option</code></pre><div class="info ">
+<code class="code">get_float_opt data key</code> returns the value of <code class="code">data.key</code> as a float
+        option. If <code class="code">key</code> is not an attribute of <code class="code">data</code>, it returns <code class="code">None</code>.<br>
 </div>
 </body></html>
