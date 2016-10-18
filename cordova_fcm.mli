@@ -128,42 +128,34 @@ module Data :
     [@@@js.implem
       let get data key        = Ojs.get data key
 
-      let get_opt data key    = Ojs.option_of_js (fun t -> Ojs.get t key) data
+      let get_opt data key    = Ojs.option_of_js (fun x -> x) data
 
       let get_string data key = Ojs.string_of_js (get data key)
 
       let get_string_opt data key =
-        match (get_opt data key) with
-        | None -> None
-        | Some x -> Some (Ojs.string_of_js x)
+        Ojs.option_of_js Ojs.string_of_js (get data key)
 
       let get_int data key    = Ojs.int_of_js (get data key)
 
       let get_int_opt data key     =
-        match (get_opt data key) with
-        | None -> None
-        | Some x -> Some (Ojs.int_of_js x)
+        Ojs.option_of_js Ojs.int_of_js (get data key)
 
       let get_bool data key   = Ojs.bool_of_js (get data key)
 
       let get_bool_opt data key    =
-        match (get_opt data key) with
-        | None -> None
-        | Some x -> Some (Ojs.bool_of_js x)
+        Ojs.option_of_js Ojs.bool_of_js (get data key)
 
       let get_int64 data key  = Int64.of_string (get_string data key)
 
       let get_int64_opt data key   =
-        match (get_string_opt data key) with
-        | None -> None
-        | Some x -> Some (Int64.of_string x)
+        Ojs.option_of_js
+          (fun v -> Int64.of_string (Ojs.string_of_js v))
+          (get data key)
 
       let get_float data key  = Ojs.float_of_js (get data key)
 
       let get_float_opt data key   =
-        match (get_opt data key) with
-        | None -> None
-        | Some x -> Some (Ojs.float_of_js x)
+        Ojs.option_of_js Ojs.float_of_js (get data key)
     ]
   end
 
