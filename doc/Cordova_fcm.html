@@ -22,6 +22,8 @@ Binding to cordova-plugin-fcm using gen_js_api which allows you to use
 </div>
 <hr width="100%">
 <br>
+<b>Types</b><br>
+<br>
 The three following types are defined to have clearer functions signatures.
     They are not abstract because it is not necessary.<br>
 
@@ -42,16 +44,24 @@ Types representing a topic in FCM<br>
 Types representing an error returned by FCM<br>
 </div>
 
+<br>
+<b>Data from "data" payload.</b><br>
 
 <pre><span class="keyword">module</span> <a href="Cordova_fcm.Data.html">Data</a>: <code class="code">sig</code> <a href="Cordova_fcm.Data.html">..</a> <code class="code">end</code></pre><div class="info">
 The following module defines a type <a href="Cordova_fcm.Data.html#TYPEt"><code class="code">Cordova_fcm.Data.t</code></a> which contains information
     about the notification (which is a JavaScript object).
 </div>
+<br>
+<b>Binding to functions.</b><br>
 
 <pre><span id="VALget_token"><span class="keyword">val</span> get_token</span> : <code class="type">(<a href="Cordova_fcm.html#TYPEtoken">token</a> -> unit) -> (<a href="Cordova_fcm.html#TYPEerror">error</a> -> unit) -> unit</code></pre><div class="info ">
 <code class="code">get_token success_callback error_callback</code> gets a token from FCM.
+<p>
+
     If success, the callback <code class="code">success_callback</code> is called and the token is given
     in the first parameter.
+<p>
+
     If an error occured, the callback <code class="code">error_callback</code> is called and the
     error description is given as a string in the first parameter.<br>
 </div>
@@ -59,8 +69,12 @@ The following module defines a type <a href="Cordova_fcm.Data.html#TYPEt"><code 
 <pre><span id="VALsubscribe_to_topic"><span class="keyword">val</span> subscribe_to_topic</span> : <code class="type"><a href="Cordova_fcm.html#TYPEtopic">topic</a> -> (string -> unit) -> (<a href="Cordova_fcm.html#TYPEerror">error</a> -> unit) -> unit</code></pre><div class="info ">
 <code class="code">subscribe_to_topic topic success_callback error_callback</code> subscribes to the
     topic <code class="code">topic</code>.
+<p>
+
     If success, the callback <code class="code">success_callback</code> is called and a message is given
     in the first parameter.
+<p>
+
     If an error occured, the callback <code class="code">error_callback</code> is called and the
     error description is given as a string in the first parameter.<br>
 </div>
@@ -68,8 +82,12 @@ The following module defines a type <a href="Cordova_fcm.Data.html#TYPEt"><code 
 <pre><span id="VALunsubscribe_from_topic"><span class="keyword">val</span> unsubscribe_from_topic</span> : <code class="type"><a href="Cordova_fcm.html#TYPEtopic">topic</a> -> (string -> unit) -> (<a href="Cordova_fcm.html#TYPEerror">error</a> -> unit) -> unit</code></pre><div class="info ">
 <code class="code">unsubscribe_to_topic topic success_callback error_callback</code> unsubscribes to
     the topic <code class="code">topic</code>.
+<p>
+
     If success, the callback <code class="code">success_callback</code> is called and a message is given
     in the first parameter.
+<p>
+
     If an error occured, the callback <code class="code">error_callback</code> is called and the
     error description is given as a string in the first parameter.<br>
 </div>
@@ -80,13 +98,19 @@ The following module defines a type <a href="Cordova_fcm.Data.html#TYPEt"><code 
     will be executed when the device will receive a notification. A <code class="code">Data.t</code>
     value is given in first parameter which contains keys sent by FCM. You can
     get any key values by using the appropriate <code class="code">Data.get</code> functions. Wrappers
-    for built-in OCaml types like get_string, get_bool, get_int, get_int64 are
+    for built-in OCaml types like <a href="Cordova_fcm.Data.html#VALget_string"><code class="code">Cordova_fcm.Data.get_string</code></a>, <a href="Cordova_fcm.Data.html#VALget_bool"><code class="code">Cordova_fcm.Data.get_bool</code></a>,
+    <a href="Cordova_fcm.Data.html#VALget_int"><code class="code">Cordova_fcm.Data.get_int</code></a>, <a href="Cordova_fcm.Data.html#VALget_int64"><code class="code">Cordova_fcm.Data.get_int64</code></a> are
     defined to avoid using a cast function.
 <p>
 
-    <code class="code">success_registered</code> will be executed if the onNotification callback is
+    <code class="code">success_registered</code> will be executed if the <code class="code">onNotification</code> callback is
     successfully registered.
-    <code class="code">error_registered</code> will be executed if the onNotification callback failed to
-    register.<br>
+    <code class="code">error_registered</code> will be executed if the <code class="code">onNotification</code> callback failed to
+    register.
+<p>
+
+    <b>NOTE</b>: Don't forget to set the "action" payload in notification to
+    "ACTIVITY_PLUGIN_FCM" if you want to open the application when
+    the user taps on the notification.<br>
 </div>
 </body></html>

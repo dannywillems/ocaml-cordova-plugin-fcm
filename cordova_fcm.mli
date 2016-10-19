@@ -24,6 +24,7 @@
     and iOS.
  *)
 
+(** {b Types} *)
 (** The three following types are defined to have clearer functions signatures.
     They are not abstract because it is not necessary.
  *)
@@ -37,9 +38,15 @@ type topic = string
 (** Types representing an error returned by FCM *)
 type error = string
 
+(** {b Data from "data" payload.} *)
+
 (** The following module defines a type {!Data.t} which contains information
     about the notification (which is a JavaScript object). To access to
     properties of a value of type {!Data.t}, get functions are implemented.
+
+    In cordova-plugin-fcm, these data comes from the "data" payload in the JSON
+    sent to FCM. See the official documentation:
+      https://github.com/fechanique/cordova-plugin-fcm
  *)
 module Data :
   sig
@@ -159,9 +166,12 @@ module Data :
     ]
   end
 
+(** {b Binding to functions.} *)
 (** [get_token success_callback error_callback] gets a token from FCM.
+
     If success, the callback [success_callback] is called and the token is given
     in the first parameter.
+
     If an error occured, the callback [error_callback] is called and the
     error description is given as a string in the first parameter.
  *)
@@ -173,8 +183,10 @@ val get_token :
 
 (** [subscribe_to_topic topic success_callback error_callback] subscribes to the
     topic [topic].
+
     If success, the callback [success_callback] is called and a message is given
     in the first parameter.
+
     If an error occured, the callback [error_callback] is called and the
     error description is given as a string in the first parameter.
  *)
@@ -187,8 +199,10 @@ val subscribe_to_topic :
 
 (** [unsubscribe_to_topic topic success_callback error_callback] unsubscribes to
     the topic [topic].
+
     If success, the callback [success_callback] is called and a message is given
     in the first parameter.
+
     If an error occured, the callback [error_callback] is called and the
     error description is given as a string in the first parameter.
  *)
@@ -204,13 +218,18 @@ val unsubscribe_from_topic :
     will be executed when the device will receive a notification. A [Data.t]
     value is given in first parameter which contains keys sent by FCM. You can
     get any key values by using the appropriate [Data.get] functions. Wrappers
-    for built-in OCaml types like get_string, get_bool, get_int, get_int64 are
+    for built-in OCaml types like {!Data.get_string}, {!Data.get_bool},
+    {!Data.get_int}, {!Data.get_int64} are
     defined to avoid using a cast function.
 
-    [success_registered] will be executed if the onNotification callback is
+    [success_registered] will be executed if the [onNotification] callback is
     successfully registered.
-    [error_registered] will be executed if the onNotification callback failed to
+    [error_registered] will be executed if the [onNotification] callback failed to
     register.
+
+    {b NOTE}: Don't forget to set the "action" payload in notification to
+    "ACTIVITY_PLUGIN_FCM" if you want to open the application when
+    the user taps on the notification.
  *)
 val on_notification :
   (Data.t -> unit) ->
